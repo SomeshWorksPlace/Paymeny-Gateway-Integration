@@ -1,0 +1,47 @@
+﻿@model Paymeny_Gateway_Integration.Models.PaymentModel
+
+
+@{
+    ViewData["Title"] = "Payment Page";
+}
+
+<!-- Add Bootstrap (if not already included) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container d-flex justify-content-center align-items-center vh-100">x
+    <div class="card shadow-lg p-4" style="width: 400px;">
+        <h2 class="text-center mb-4">Enter Payment Details</h2>
+
+        @using (Html.BeginForm("ProcessPayment", "Payment", FormMethod.Post))
+        {
+            <div class="mb-6">
+                <label class="form-label">Card Number</label>
+                @Html.TextBoxFor(m => m.CardNumber, new { @class = "form-control", placeholder = "1234 5678 9012 3456" })
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Expiry Month</label>
+                    @Html.TextBoxFor(m => m.ExpiryMonth, new { @class = "form-control", placeholder = "MM" })
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Expiry Year</label>
+                    @Html.TextBoxFor(m => m.ExpiryYear, new { @class = "form-control", placeholder = "YYYY" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">CVV</label>
+                @Html.TextBoxFor(m => m.CVV, new { @class = "form-control", placeholder = "123", type = "password" })
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Amount</label>
+                @Html.TextBoxFor(m => m.Amount, new { @class = "form-control", placeholder = "Enter Amount", required = "required" })
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Pay Now</button>
+        }
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@*@{
+
+        ViewBag.Title = "Payment Failure";
+    }
+
+
+    <h2>Payment Failed!</h2>
+    <p>@ViewBag.Message</p>*@
+
+@{
+    ViewBag.Title = "Payment Failure";
+}
+<h2>Payment Failed</h2>
+<p>@TempData["Message"]</p>
